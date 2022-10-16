@@ -7,7 +7,6 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
-		
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>tpAchatProject</artifactId>
@@ -17,7 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-	</properties> 
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -72,8 +71,23 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 	</dependencies>
-
+		<distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>corp1</id>
+      <name>Corporate Repository</name>
+      <url>http://192.168.1.89:8081/repository/maven-snapshots/</url>
+      <layout>default</layout>
+    </repository>
+</distributionManagement>
 	<build>
+		<extensions>
+		  <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-ftp</artifactId>
+         <version>2.10</version>
+      </extension>
+    </extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
