@@ -23,6 +23,7 @@ public class FactureServicelmplTest {
     @Test
     public void TestretirieveFacture() {
 	assertNotNull(FactureService.retrieveAllFactures());
+	assertNotNull(FactureService,"cv");
        
 
     }
