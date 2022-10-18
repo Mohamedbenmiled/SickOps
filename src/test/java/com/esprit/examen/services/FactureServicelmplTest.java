@@ -1,15 +1,28 @@
 package com.esprit.examen.services;
 
+import com.esprit.examen.entities.Facture;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import com.esprit.examen.repositories.FournisseurRepository;
 import com.esprit.examen.repositories.FactureRepository;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -19,14 +32,37 @@ public class FactureServicelmplTest {
     @Autowired
     private IFactureService FactureService;
     private FactureRepository FactureRepo;
+    private FournisseurServiceImpl FournisseurRepo;
+    private IFournisseurService FournisseurService;
+    @Mock
+    FactureRepository factureRepository;
 
+    @InjectMocks
+    FactureServiceImpl factureService;
     @Test
+
+
     public void TestretirieveFacture() {
-	assertNotNull(FactureService.retrieveAllFactures());
-	assertNotNull(FactureService,"cv");
-       
+        assertNotNull(FactureService.retrieveAllFactures());
+        assertNotNull(FactureService,"cv");
+    }
+    @Test
+    public void testRetrieveFacture() {
+
+        Facture facture = new Facture(1L, 100, 500, null, null, null, null, null, null);
+
+        facture.setIdFacture(1L);
+
+        Mockito.when(factureRepository.findById(1L)).thenReturn(Optional.of(facture));
+        factureService.retrieveFacture(1L);
+        Assertions.assertNotNull(facture);
+
+        System.out.println(facture);
+        System.out.println(" Retrieve is working correctly...!!");
 
     }
+
+
 }
 /*
 }
