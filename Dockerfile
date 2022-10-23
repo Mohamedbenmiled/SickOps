@@ -1,4 +1,3 @@
-Zeineb Lichiheb
 FROM maven:3.8.2-jdk-8
 ARG JAR_FILE=/1.0-SNAPSHOT/*.jar
 RUN apt-get install wget
