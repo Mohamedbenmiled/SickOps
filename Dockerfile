@@ -1,13 +1,7 @@
-FROM maven as build
-
-WORKDIR /spring-app
-COPY . .
-RUN mvn clean install
-
-CMD mvn spring-boot:run
-
-
-FROM openjdk:8-jdk-alpine
-EXPOSE 8081
-ADD target/*.war /
-ENTRYPOINT ["java", "-jar", "TpAchatProject-1.0.war "]
+Zeineb Lichiheb
+FROM maven:3.8.2-jdk-8
+ARG JAR_FILE=/1.0-SNAPSHOT/*.jar
+RUN apt-get install wget
+RUN curl -u Mohamed:admin -o achat.jar "http://192.168.1.89:8081/repositories/maven-snapshots/com/esprit/examen/tpAchatProject/1.0-SNAPSHOT/tpAchatProject-1.0-20221023.001100-1.jar" -L
+ENTRYPOINT ["java","-jar","/achat.jar"]
+EXPOSE 8082
