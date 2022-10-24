@@ -18,6 +18,6 @@ services:
    container_name: achat234
    restart: on-failure
    ports:
-    - 8089:8089
+    - 8082:8082
    depends_on:
     - mysqldb
