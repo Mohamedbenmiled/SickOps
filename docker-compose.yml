@@ -14,8 +14,8 @@ services:
      - /home/mysql/data:/var/lib/mysql --user 1000
 
   spring_app:
-   image: mohamedbenmiled/achatapp_test 
-   container_name: achatapp_test
+   image: mohamedbenmiled/achat23 
+   container_name: achat23
    restart: on-failure
    ports:
     - 8082:8082
