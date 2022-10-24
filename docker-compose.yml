@@ -16,7 +16,7 @@ services:
   spring_app:
    image: mohamedbenmiled/achat234
    container_name: achat234
-   restart: on-failure
+   restart: unless-stopped
    ports:
     - 8082:8082
    depends_on:
