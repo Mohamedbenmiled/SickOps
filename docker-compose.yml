@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mysqldb:
-   container_name: mysqldbab
+   container_name: mysqldbaba
    image: mysql:8
    restart: unless-stopped
    ports:
@@ -14,10 +14,10 @@ services:
      - /home/mysql/data:/var/lib/mysql --user 1000
 
   spring_app:
-   image: mohamedbenmiled/achat23 
+   image: mohamedbenmiled/achat234
    container_name: achat23
    restart: on-failure
    ports:
-    - 8082:8082
+    - 8089:8089
    depends_on:
     - mysqldb
