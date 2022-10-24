@@ -15,7 +15,7 @@ services:
 
   spring_app:
    image: mohamedbenmiled/achat234
-   container_name: achat23
+   container_name: achat234
    restart: on-failure
    ports:
     - 8089:8089
