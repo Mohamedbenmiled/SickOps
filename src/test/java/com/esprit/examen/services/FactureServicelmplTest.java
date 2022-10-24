@@ -16,13 +16,43 @@ import static org.mockito.Mockito.when;
 import com.esprit.examen.repositories.FournisseurRepository;
 import com.esprit.examen.repositories.FactureRepository;
 import lombok.extern.slf4j.Slf4j;
-
+import com.esprit.examen.services.IStockService;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import com.esprit.examen.entities.CategorieProduit;
+import com.esprit.examen.repositories.CategorieProduitRepository;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import static org.mockito.Mockito.verify;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -34,12 +64,18 @@ public class FactureServicelmplTest {
     private FactureRepository FactureRepo;
     private FournisseurServiceImpl FournisseurRepo;
     private IFournisseurService FournisseurService;
+    @Autowired
+    IProduitService ps;
+
+    @Autowired
+    IStockService ss;
+
+
     @Mock
     FactureRepository factureRepository;
 
     @InjectMocks
     FactureServiceImpl factureService;
-   
     @Test
     public void testRetrieveFacture() {
 
