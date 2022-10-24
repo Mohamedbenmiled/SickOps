@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mysqldb:
-   container_name: mysqldbaba
+   container_name: mysqldbabaaz
    image: mysql:8
    restart: unless-stopped
    ports:
