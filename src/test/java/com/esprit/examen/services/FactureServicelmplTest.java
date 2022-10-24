@@ -39,13 +39,7 @@ public class FactureServicelmplTest {
 
     @InjectMocks
     FactureServiceImpl factureService;
-    @Test
-
-
-    public void TestretirieveFacture() {
-        assertNotNull(FactureService.retrieveAllFactures());
-        assertNotNull(FactureService,"cv");
-    }
+   
     @Test
     public void testRetrieveFacture() {
 
