@@ -14,9 +14,9 @@ services:
      - /home/mysql/data:/var/lib/mysql --user 1000
 
   spring_app:
-   image: mohamedbenmiled/achat2345
+   image: mohamedbenmiled/achat23456
    restart: unless-stopped
-   container_name: achat2345
+   container_name: achat23456
    ports:
     - 8082:8082
    depends_on:
