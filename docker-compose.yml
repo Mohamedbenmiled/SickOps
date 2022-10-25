@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mysqldb:
-   container_name: mysqldb144656
+   container_name: mysqldb1446567
    image: mysql:5.6
    restart: unless-stopped
    ports:
@@ -14,8 +14,8 @@ services:
      - /home/mysql/data:/var/lib/mysql --user 1000
 
   spring_app:
-   image: mohamedbenmiled/achat23456
-   container_name: achat23456
+   image: mohamedbenmiled/achatt
+   container_name: achatt
    ports:
     - 8089:8089
    environment:
