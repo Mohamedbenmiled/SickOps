@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mysqldb:
-   container_name: mysqldbzert
+   container_name: mysqlekhdem
    image: mysql:8
    restart: unless-stopped
    ports:
