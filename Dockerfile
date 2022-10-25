@@ -1,7 +1,6 @@
 FROM maven:3.8.2-jdk-8
-ARG JAR_FILE=/1.0-SNAPSHOT/*.jar
 RUN apt-get install curl
-RUN curl -u Mohamed:admin -o achat.jar "http://192.168.1.89:8081/repositories/maven-snapshots/com/esprit/examen/tpAchatProject/1.0-SNAPSHOT/tpAchatProject-1.0-20221024.230408-104.jar" -L
-ENTRYPOINT ["java","-jar","/achat.jar"]
+RUN curl -u Mohamed:admin -o achat.jar "http://192.168.1.89:8081/repositories/maven-snapshots/com/esprit/examen/tpAchatProject/1.0/tpAchatProject-1.0.jar" -L
+ENTRYPOINT ["java","-jar","/achat2.jar"]
 EXPOSE 8082
 
