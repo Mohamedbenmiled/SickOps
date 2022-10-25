@@ -1,7 +1,8 @@
 version: "3"
+
 services:
   mysqldb:
-   container_name: mysql12456
+   container_name: mysqldbzert
    image: mysql:8
    restart: unless-stopped
    ports:
@@ -9,10 +10,11 @@ services:
    environment:
     MYSQL_DATABASE: achatdb
     MYSQL_ROOT_PASSWORD: MYSQL_ALLOW_EMPTY_PASSWORD
-
+   volumes:
+     - /home/mysql/data:/var/lib/mysql --user 1000
 
   spring_app:
-   image: mohamedbenmiled/achat2345 
+   image: mohamedbenmiled/achat2345
    restart: unless-stopped
    container_name: achat2345
    ports:
